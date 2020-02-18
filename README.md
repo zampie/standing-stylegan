@@ -1,6 +1,6 @@
 # standing-stylegan
 
-A anime standing generater trained by stylegan(https://github.com/NVlabs/stylegan)
+A anime full body standing generater by stylegan(https://github.com/NVlabs/stylegan).
 
 Still under training.
 
