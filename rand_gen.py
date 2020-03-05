@@ -10,7 +10,7 @@ if __name__ == '__main__':
     root = './result'
 
     synthesis_kwargs = dict(output_transform=dict(func=tflib.convert_images_to_uint8, nchw_to_nhwc=True),
-                            minibatch_size=8)
+                            minibatch_size=1)
 
     tflib.init_tf()
     os.makedirs(root, exist_ok=True)
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # n = 50
     # seeds = np.random.randint(10000,size=n)
 
-    seeds = np.arange(0,100)
+    seeds = np.arange(0,10)
     for seed in seeds:
         latent = np.stack([np.random.RandomState(seed).randn(Gs.input_shape[1])])
         dlatents = Gs.components.mapping.run(latent, None)  # [seed, layer, component]

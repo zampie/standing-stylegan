@@ -11,7 +11,7 @@ if __name__ == '__main__':
     root = './'
 
     synthesis_kwargs = dict(output_transform=dict(func=tflib.convert_images_to_uint8, nchw_to_nhwc=True),
-                            minibatch_size=8)
+                            minibatch_size=1)
 
     tflib.init_tf()
     os.makedirs(root, exist_ok=True)
@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     seeds = [0, 75, 97, 71]
     imgs = []
-    sec = 3
+    sec = 2
     n = 24 * sec
 
     for i in range(len(seeds)):
@@ -44,11 +44,15 @@ if __name__ == '__main__':
             # img.save(os.path.join(root, 'out%.3f.png'%lamb))
             imgs.append(img)
 
-    imgs[0].save(os.path.join(root, 'inter_%s_seeds_%s.gif' % (
-        time.ctime().replace(' ', '_').replace(':', '_'), str(seeds)[1:-1].replace(', ', '_')))
+    # imgs[0].save(os.path.join(root, 'inter_%s_seeds_%s.gif' % (
+    #     time.ctime().replace(' ', '_').replace(':', '_'), str(seeds)[1:-1].replace(', ', '_')))
+    #              , save_all=True, append_images=imgs[1:], optimize=False, duration=41, loop=0)
+
+    imgs[0].save(os.path.join(root, 'inter_%s_seeds_%s_model_%s.gif' % (
+        time.ctime().replace(' ', '_').replace(':', '_'), str(seeds)[1:-1].replace(', ', '_'), ckpt.split('/')[-1]))
                  , save_all=True, append_images=imgs[1:], optimize=False, duration=41, loop=0)
 # PIL自动去除相邻重复帧
-
+1
 # seed = 3
 # latent = np.stack([np.random.RandomState(seed).randn(Gs.input_shape[1])])
 # dlatents = Gs.components.mapping.run(latent, None)  # [seed, layer, component]
