@@ -21,4 +21,4 @@ Samples:
 
 
 pretrained model:
-https://drive.google.com/file/d/1-28ePrl8na9dyqmN6Pr2EghJ_5CWzB-K/view?usp=sharing
+https://drive.google.com/file/d/1Lh8rikHnwl4r-rd3cVSwT6XRlWRDEUY0/view?usp=sharing
